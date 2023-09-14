@@ -58,7 +58,7 @@ class EpubReader {
       loadedBytes = bytes;
     }
 
-    var epubArchive = ZipDecoder().decodeBytes(loadedBytes);
+    var epubArchive = ZipDecoder().decodeBytes(loadedBytes, verify: true);
 
     var bookRef = EpubBookRef(epubArchive);
     bookRef.Schema = await SchemaReader.readSchema(epubArchive);
